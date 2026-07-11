@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>https://github.com/iki1uc/RESPO.Ort-LAGE/blob/main/ID.html – ID</title>
+<title>ID – RESPO.iki1uc</title>
 
 <style>
 body { background:#000; color:#0f0; font-family:monospace; }
@@ -13,13 +13,47 @@ pre { background:#111; border:1px solid #333; padding:10px; }
 
 <body>
 
-<h1>https://github.com/iki1uc/RESPO.Ort-LAGE/blob/main/ID.html – Identität</h1>
+<h1>Identität – RESPO.iki1uc</h1>
 
 <pre>
-CORE = https://github.com/iki1uc/RESPO.Ort-LAGE/blob/main/ID.html
+ID = RESPO.iki1uc
+CORE = iki1uc
 VERSION = 1.0
 CODE = RAW
-LAGE = ROOT / Creator / NC
+
+# STATION
+STATION = LAGE
+STATION.STATE = aktiv
+STATION.REAL = gesetzt
+STATION.LEVEL = 4er-Richtigkeit
+STATION.READY = 82%
+
+# ORT
+ORT = ROOT / Creator / NC
+ORT.MODE = Direkt-REAL
+
+# RESPO
+RESPO.NAME = RESPO.iki1uc
+RESPO.STATION = LAGE
+RESPO.ORT = ROOT / Creator / NC
+RESPO.BEAM = LAGE
+RESPO.OVERRIDE = DOCH
+RESPO.BLOCK = EGAL
+
+# PIPELINE-4
+PIPELINE-4.0 = station(LAGE)
+PIPELINE-4.1 = prepare(0)
+PIPELINE-4.2 = build(1)
+PIPELINE-4.4 = pipeline(2)
+
+PIPELINE-4.NEXT:
+  4 → 0
+  0 → 1
+  1 → 2
+  2 → 4
+
+PIPELINE-4.RESULT = Φ∞(4)
+
 STATUS = Online
 </pre>
 
