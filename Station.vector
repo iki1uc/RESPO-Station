@@ -1,3 +1,5 @@
+import { RESPO_LAGE_BOOKABLE } from "./Bookable.js";
+
 export function RESPO_STATION_MASTER(vector) {
 
     const respo = VectorRESPO(vector);
@@ -5,10 +7,9 @@ export function RESPO_STATION_MASTER(vector) {
     const radar = RADAR_CORE(geo);
     const evo = EVO_PIPE(vector);
 
-    return {
-        respo,
-        geo,
-        radar,
-        evo
-    };
+    const master = { respo, geo, radar, evo };
+
+    master.book = RESPO_LAGE_BOOKABLE(master);
+
+    return master;
 }
