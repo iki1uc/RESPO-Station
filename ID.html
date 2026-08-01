@@ -1,61 +1,20 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>ID – RESPO.iki1uc</title>
-
-<style>
-body { background:#000; color:#0f0; font-family:monospace; }
-h1 { color:#6cf; }
-pre { background:#111; border:1px solid #333; padding:10px; }
-</style>
-</head>
-
-<body>
-
-<h1>Identität – RESPO.iki1uc</h1>
-
-<pre>
-ID = RESPO.iki1uc
-CORE = iki1uc
-VERSION = 1.0
-CODE = RAW
-
-# STATION
-STATION = LAGE
-STATION.STATE = aktiv
-STATION.REAL = gesetzt
-STATION.LEVEL = 4er-Richtigkeit
-STATION.READY = 82%
-
-# ORT
-ORT = ROOT / Creator / NC
-ORT.MODE = Direkt-REAL
-
-# RESPO
-RESPO.NAME = RESPO.iki1uc
-RESPO.STATION = LAGE
-RESPO.ORT = ROOT / Creator / NC
-RESPO.BEAM = LAGE
-RESPO.OVERRIDE = DOCH
-RESPO.BLOCK = EGAL
-
-# PIPELINE-4
-PIPELINE-4.0 = station(LAGE)
-PIPELINE-4.1 = prepare(0)
-PIPELINE-4.2 = build(1)
-PIPELINE-4.4 = pipeline(2)
-
-PIPELINE-4.NEXT:
-  4 → 0
-  0 → 1
-  1 → 2
-  2 → 4
-
-PIPELINE-4.RESULT = Φ∞(4)
-
+ID = RESPO.STATION.LAGE
+ID.TYPE = Vector-ID
+ID.SOURCE = 12.csv
+ID.VECTOR = e0
+ID.AXIS = x,y,z,rot
+ID.EVO = 360°
+ID.GEO = GEO-BEREIT
+ID.RADAR = RADAR-AKTIV
+ID.READY = READY
+ID.FUNCTION = FUNKTIONIERT
+ID.PIPELINE = Φ∞(4)
+ID.STATE = aktiv
+ID.REAL = gesetzt
+ID.LEVEL = 4
+ID.READY.PERCENT = 82%
+ID.ORT = ROOT / Creator / NC
+ID.BEAM = LAGE
+ID.OVERRIDE = DOCH
+ID.BLOCK = EGAL
 STATUS = Online
-</pre>
-
-</body>
-</html>
