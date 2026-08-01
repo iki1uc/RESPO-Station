@@ -1,0 +1,14 @@
+export function RESPO_STATION_MASTER(vector) {
+
+    const respo = VectorRESPO(vector);
+    const geo = GEO_CORE(vector);
+    const radar = RADAR_CORE(geo);
+    const evo = EVO_PIPE(vector);
+
+    return {
+        respo,
+        geo,
+        radar,
+        evo
+    };
+}
