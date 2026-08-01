@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>RESPO‑Station – Master</title>
+<title>RESPO‑Station · LAGE · 360°</title>
 
 <style>
 body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
@@ -15,7 +15,7 @@ pre { background:#000; border-left:3px solid #6cf; padding:10px; white-space:pre
 
 <body>
 
-<h1>RESPO‑Station – Master</h1>
+<h1>RESPO‑Station · LAGE · 360°</h1>
 
 <div id="output"></div>
 
@@ -49,9 +49,9 @@ async function run() {
 
         html += `
         <div class="section">
-            <div class="title">Vector ${vector.id}</div>
+            <div class="title">Vector ${vector.id} · 360°</div>
             <pre>
-Axis:
+Achsen:
   x: ${vector.axis.x}
   y: ${vector.axis.y}
   z: ${vector.axis.z}
@@ -71,16 +71,16 @@ RESPO:
 
 EVO:
   Raw: ${station.evo.raw}
-  EVO: ${station.evo.evo}
+  EVO: ${station.evo.evo}°
   Status: ${station.evo.status}
 
 GEO:
   Position: ${station.geo.position}
-  Sweep: ${station.geo.sweep}
+  Sweep: ${station.geo.sweep}°
 
 Radar:
   Status: ${station.radar.radar}
-  Sweep: ${station.radar.sweep}
+  Sweep: ${station.radar.sweep}°
             </pre>
         </div>
         `;
