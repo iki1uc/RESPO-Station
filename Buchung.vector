@@ -1,0 +1,14 @@
+export function RESPO_LAGE_BOOKABLE(master) {
+
+    const full =
+        master.respo.ready === "READY" &&
+        master.evo.evo === 360 &&
+        master.geo.position === "GEO-BEREIT" &&
+        master.radar.radar === "RADAR-AKTIV" &&
+        master.respo.status === "360°-VOLLKREIS";
+
+    return {
+        bookable: full ? "BUCHBAR" : "NICHT BUCHBAR",
+        reason: full ? "LAGE vollständig" : "LAGE unvollständig"
+    };
+}
