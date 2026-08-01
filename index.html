@@ -1,4 +1,97 @@
-RESPO.STATION = LAGE
-RESPO.STATION.TYPE = Ort
-RESPO.STATION.STATE = aktiv
-RESPO.STATION.REAL = gesetzt
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>RESPO‑Station – Master</title>
+
+<style>
+body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+h1 { color:#6cf; margin-bottom:20px; }
+.section { background:#111; border:1px solid #333; padding:20px; margin-bottom:25px; }
+.title { color:#6cf; font-size:20px; margin-bottom:10px; }
+pre { background:#000; border-left:3px solid #6cf; padding:10px; white-space:pre-wrap; }
+</style>
+</head>
+
+<body>
+
+<h1>RESPO‑Station – Master</h1>
+
+<div id="output"></div>
+
+<script type="module">
+
+import { VectorTranslate } from "./row.id.js";
+import { RESPO_STATION_MASTER } from "./Station.vector.js";
+
+async function loadCSV(path) {
+    const text = await fetch(path).then(r => r.text());
+    const lines = text.trim().split("\n");
+    const header = lines[0].split(";");
+    return lines.slice(1).map(line => {
+        const cols = line.split(";");
+        const obj = {};
+        header.forEach((h, i) => obj[h] = cols[i]);
+        return obj;
+    });
+}
+
+async function run() {
+
+    const rows = await loadCSV("./12.csv");
+
+    let html = "";
+
+    rows.forEach(row => {
+
+        const vector = VectorTranslate(row);
+        const station = RESPO_STATION_MASTER(vector);
+
+        html += `
+        <div class="section">
+            <div class="title">Vector ${vector.id}</div>
+            <pre>
+Axis:
+  x: ${vector.axis.x}
+  y: ${vector.axis.y}
+  z: ${vector.axis.z}
+  rot: ${vector.axis.rot}
+
+Station:
+  Level: ${vector.station.level}
+  Ready: ${vector.station.ready}%
+  State: ${vector.station.state}
+  Real: ${vector.station.real}
+  Ort: ${vector.station.ort}
+  Beam: ${vector.station.beam}
+
+RESPO:
+  Ready: ${station.respo.ready}
+  Status: ${station.respo.status}
+
+EVO:
+  Raw: ${station.evo.raw}
+  EVO: ${station.evo.evo}
+  Status: ${station.evo.status}
+
+GEO:
+  Position: ${station.geo.position}
+  Sweep: ${station.geo.sweep}
+
+Radar:
+  Status: ${station.radar.radar}
+  Sweep: ${station.radar.sweep}
+            </pre>
+        </div>
+        `;
+    });
+
+    document.getElementById("output").innerHTML = html;
+}
+
+run();
+
+</script>
+
+</body>
+</html>
