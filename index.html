@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>RESPO‑Station · LAGE · 360°</title>
+<title>RESPO‑Station · LAGE · 360° · Overdrive</title>
 
 <style>
 body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
@@ -15,7 +15,7 @@ pre { background:#000; border-left:3px solid #6cf; padding:10px; white-space:pre
 
 <body>
 
-<h1>RESPO‑Station · LAGE · 360°</h1>
+<h1>RESPO‑Station · LAGE · 360° · Overdrive</h1>
 
 <div id="output"></div>
 
@@ -49,7 +49,7 @@ async function run() {
 
         html += `
         <div class="section">
-            <div class="title">Vector ${vector.id} · 360°</div>
+            <div class="title">Vector ${vector.id} · 360° Vollkreis</div>
             <pre>
 Achsen:
   x: ${vector.axis.x}
@@ -81,6 +81,10 @@ GEO:
 Radar:
   Status: ${station.radar.radar}
   Sweep: ${station.radar.sweep}°
+
+Buchung:
+  Status: ${station.book.bookable}
+  Grund: ${station.book.reason}
             </pre>
         </div>
         `;
