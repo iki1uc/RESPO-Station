@@ -1,0 +1,11 @@
+export function VectorRESPO(vector) {
+
+    const full = vector.evo === 360;
+
+    return {
+        ready: full ? "READY" : "NOT READY",
+        percent: vector.station.ready,
+        evo: vector.evo,
+        status: full ? "360°-VOLLKREIS" : "UNVOLLSTÄNDIG"
+    };
+}
