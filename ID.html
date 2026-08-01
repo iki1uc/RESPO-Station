@@ -1,20 +1,35 @@
-ID = RESPO.STATION.LAGE
-ID.TYPE = Vector-ID
-ID.SOURCE = 12.csv
-ID.VECTOR = e0
-ID.AXIS = x,y,z,rot
-ID.EVO = 360°
-ID.GEO = GEO-BEREIT
-ID.RADAR = RADAR-AKTIV
-ID.READY = READY
-ID.FUNCTION = FUNKTIONIERT
-ID.PIPELINE = Φ∞(4)
-ID.STATE = aktiv
-ID.REAL = gesetzt
-ID.LEVEL = 4
-ID.READY.PERCENT = 82%
-ID.ORT = ROOT / Creator / NC
-ID.BEAM = LAGE
-ID.OVERRIDE = DOCH
-ID.BLOCK = EGAL
-STATUS = Online
+ID: EXP
+TYPE: Vollachse
+MODE: Modular
+FORM: RAW
+
+GEO:
+  STATE: GEO-BEREIT
+  SWEEP: 360°
+
+AXIS:
+  X: [axis.x]
+  Y: [axis.y]
+  Z: [axis.z]
+  ROT: [axis.rot]
+  FULL: [axis.full]
+
+STATION:
+  NAME: EXP
+  STATE: aktiv
+  REAL: gesetzt
+
+PIPELINE:
+  3: Zustand
+  6: Overdrive
+  EXP: offen
+
+VECTOR:
+  SOURCE: 12.csv
+  MODE: linear
+
+RADAR:
+  STATE: aktiv
+  SWEEP: 360°
+
+STATUS: Online
