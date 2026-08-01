@@ -1,0 +1,9 @@
+export function EVO_PIPE(vector) {
+
+    return {
+        raw: (vector.station.level * vector.station.ready) + 5,
+        evo: 360,
+        next: 360,
+        status: "EVO-VOLLKREIS"
+    };
+}
